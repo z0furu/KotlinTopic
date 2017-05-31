@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1002042931616",
+    "project_id": "kotlintopic"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1002042931616:android:b9509bc286fcba45",
+        "android_client_info": {
+          "package_name": "com.kotlintopic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1002042931616-hpt92g5dqokmhg24ph7ph433a3mqua52.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kotlintopic",
+            "certificate_hash": "4b36a0c92446cd240251ef3ec5d91310b9021626"
+          }
+        },
+        {
+          "client_id": "1002042931616-4ota2l7v4i3cg6dl0ckk92fsau4f50hf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5iCu91nWZ1CbFc_sFAQSDxHlnpYC2jzI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
