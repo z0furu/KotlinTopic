@@ -13,6 +13,7 @@ import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.GoogleApiClient
 import com.kotlintopic.R
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
 
@@ -29,7 +30,7 @@ class MainActivity : BaseActivity(), View.OnClickListener, GoogleApiClient.OnCon
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        initParam()
         initView()
     }
 
