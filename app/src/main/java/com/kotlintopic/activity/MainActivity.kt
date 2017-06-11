@@ -77,7 +77,7 @@ class MainActivity : BaseActivity(), View.OnClickListener, GoogleApiClient.OnCon
         if (signInResultFromIntent!!.isSuccess) {
             val account = signInResultFromIntent.signInAccount!!.displayName
             Toast.makeText(this, account, Toast.LENGTH_SHORT).show()
-            startActivity(Main2Activity.Companion.IntentWithBundle(this, account!!))
+            startActivity(Main2Activity.IntentWithBundle(this, account!!))
             Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback {
                 Log.d(TAG, "revokeAccess")
             }

@@ -1,8 +1,7 @@
 package com.kotlintopic.fragment
 
 
-import android.support.v4.app.Fragment
-import android.support.v4.widget.SwipeRefreshLayout
+import android.content.Context
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -14,20 +13,16 @@ import com.kotlintopic.adapter.AirQualityAdapter
 import com.kotlintopic.moudle.AirQuality
 import com.lzy.okgo.OkGo
 import com.lzy.okgo.callback.StringCallback
-import com.lzy.okgo.cache.CacheMode
-import com.lzy.okgo.model.Response
 import okhttp3.Call
-import java.util.*
 
 
 /**
  *
  */
-class DashboardFragment : Fragment() {
+class DashboardFragment : BaseFragment() {
 
     private lateinit var mView : View
     private lateinit var myRecyclerView : RecyclerView
-    private lateinit var myRefresh : SwipeRefreshLayout
 
     private var airQualityList : List<AirQuality>? = null
 
@@ -55,7 +50,6 @@ class DashboardFragment : Fragment() {
      */
     private fun bindView() {
         myRecyclerView = mView.findViewById(R.id.recyclerView) as RecyclerView
-        myRefresh = mView.findViewById(R.id.swipeRefresh) as SwipeRefreshLayout
     }
 
     /**
@@ -63,7 +57,14 @@ class DashboardFragment : Fragment() {
      */
     private fun initParam() {
 
-        getAirData()
+    }
+
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        if (!hidden) {
+            showWindow(myRecyclerView)
+            getAirData()
+        }
     }
 
     /**
@@ -74,12 +75,16 @@ class DashboardFragment : Fragment() {
                 .tag(this)
                 .execute(object : StringCallback() {
                     override fun onSuccess(p0: String?, p1: Call?, p2: okhttp3.Response?) {
+                        dismissWindow()
                         //TODO What is object
                         //http://www.kotlincn.net/docs/reference/object-declarations.html
+                        Log.d(TAG, p0)
+                        //new TypeToken<List<JsonLog>>(){}.getType());
                         val collectionType = object : TypeToken<List<AirQuality>>() {}.type
                         airQualityList = Gson().fromJson(p0,collectionType)
+
+                        myRecyclerView.layoutManager = LinearLayoutManager(activity as Context?)
                         val airQualityAdapter :AirQualityAdapter = AirQualityAdapter(airQualityList!!)
-                        myRecyclerView.layoutManager = LinearLayoutManager(activity)
                         myRecyclerView.adapter = airQualityAdapter
                     }
                 })

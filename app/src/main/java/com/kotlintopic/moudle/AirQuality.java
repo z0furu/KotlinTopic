@@ -1,5 +1,7 @@
 package com.kotlintopic.moudle;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * 功能
  */
@@ -10,21 +12,21 @@ public class AirQuality {
     /**
      * SiteName : 二林
      * County : 彰化縣
-     * PSI : 26
+     * PSI : 36
      * MajorPollutant :
      * Status : 良好
-     * SO2 : 2.4
-     * CO : 0.12
-     * O3 : 16
-     * PM10 : 22
-     * PM2.5 : 7
-     * NO2 : 7
-     * WindSpeed : 1.7
-     * WindDirec : 99
+     * SO2 : 2
+     * CO : 0.13
+     * O3 : 11
+     * PM10 : 28
+     * PM2.5 : 2
+     * NO2 : 6.5
+     * WindSpeed : 1.6
+     * WindDirec : 142
      * FPMI : 1
-     * NOx : 7.95
-     * NO : 1
-     * PublishTime : 2017-05-30 22:00
+     * NOx : 7.16
+     * NO : .71
+     * PublishTime : 2017-06-10 22:00
      */
 
     private String SiteName;
@@ -36,7 +38,6 @@ public class AirQuality {
     private String CO;
     private String O3;
     private String PM10;
-    private String PM2;
     private String NO2;
     private String WindSpeed;
     private String WindDirec;
@@ -115,14 +116,6 @@ public class AirQuality {
 
     public void setPM10(String PM10) {
         this.PM10 = PM10;
-    }
-
-    public String getPM2() {
-        return PM2;
-    }
-
-    public void setPM2(String PM2) {
-        this.PM2 = PM2;
     }
 
     public String getNO2() {

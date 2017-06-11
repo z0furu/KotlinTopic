@@ -87,6 +87,7 @@ class Main2Activity : BaseActivity() {
             }
         }
         trans.commitAllowingStateLoss()
+
     }
 
 

@@ -11,7 +11,7 @@ import com.kotlintopic.moudle.AirQuality
 /**
  * 功能
  */
-class AirQualityAdapter(var data : List<AirQuality>) : RecyclerView.Adapter<AirQualityAdapter.MyViewHolder>() {
+class AirQualityAdapter(val data : List<AirQuality>) : RecyclerView.Adapter<AirQualityAdapter.MyViewHolder>() {
 
     override fun getItemCount(): Int {
         return data.size
@@ -19,9 +19,11 @@ class AirQualityAdapter(var data : List<AirQuality>) : RecyclerView.Adapter<AirQ
 
     override fun onBindViewHolder(myViewHolder: MyViewHolder?, position: Int) {
         val newsContainer = data[position]
-        myViewHolder!!.txtCountry.text = newsContainer.county
-        myViewHolder.txtSitName.text = newsContainer.siteName
-        myViewHolder.txtStatus.text = newsContainer.status
+        if (myViewHolder != null) {
+            myViewHolder.txtCountry.text = newsContainer.county
+            myViewHolder.txtSitName.text = newsContainer.siteName
+            myViewHolder.txtStatus.text = newsContainer.status
+        }
 
     }
 

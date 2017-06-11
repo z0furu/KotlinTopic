@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
             android:textSize="20sp"
-            tools:text="Country"/>
+            android:text="Country"/>
 
         <TextView
             android:id="@+id/txtSiteName"
@@ -39,5 +39,11 @@
         android:textSize="18sp"
         tools:text="Status"
         android:layout_marginStart="10dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="5dp"/>
 
 </LinearLayout>
